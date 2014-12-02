@@ -7,10 +7,23 @@ use Teng::Schema::Declare;
 
 base_row_class 'StationData::DB::Row';
 
-table {
-    name 'member';
-    pk 'id';
-    columns qw(id name);
+table{
+ name 'line';
+ pk 'id';
+ columns qw(id linecode);
 };
+
+table{
+ name 'station';
+ pk 'id';
+ columns qw(id stationcode);
+};
+
+table{
+ name 'group_station';
+ pk 'id';
+ columns qw(id g_station_code);
+};
+
 
 1;

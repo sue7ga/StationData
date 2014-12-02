@@ -9,7 +9,7 @@ use Data::Dumper;
 use Module::Find;
 
 useall 'StationData::Web::C';
-base    'StationData::Web::C';
+use 'StationData::Web::C';
 
 use StationData::Model::Pref;
 
@@ -28,20 +28,15 @@ any '/' => sub {
     });
 };
 
-get '/line' => "Line#line";
 
-post '/line'=> "Line#postline";
 
 post '/pref' => sub{
  my ($c) = @_;
  my $param =  $c->req->parameters;
- my $pref = $param->{prefecture}; 
+ my $pref = $param->{prefecture};
+ $c->session->set('pref' => $pref);
  return $c->redirect('/');
 };
-
-post '/station' => "Line#poststation";
-
-get '/station' => "Line#station";
 
 1;
 

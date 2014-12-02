@@ -1,4 +1,15 @@
-CREATE TABLE IF NOT EXISTS member (
+CREATE TABLE IF NOT EXISTS line (
     id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name         VARCHAR(255)
+    linecode INTEGER
 );
+
+CREATE TABLE IF NOT EXISTS station (
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    stationcode INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS group_station (
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    g_station_code INTEGER
+);
+

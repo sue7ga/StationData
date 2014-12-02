@@ -1,0 +1,5 @@
+:for $stations -> $station {   
+ 路線名：<:$station.line_name:><br/>
+ 駅名：<:$station.station_name:><br/>
+ 駅コード：<:$station.station_cd:><br/>
+:}

@@ -1,0 +1,17 @@
+路線名：<:$line_name:><br/>
+路線コード：<:$line_cd:><br/>
+
+<br/><br/><br/>
+
+<form method="post" action="/station">
+    <input type="text" name="stationcode">
+    <input type="submit" value="submit">    
+</form>
+
+:for $station_l -> $station{
+ 駅名：<: $station.station_name :><br/>
+ 駅コード：<: $station.station_cd :><br/>
+ 駅グループコード：<: $station.station_g_cd :><br/>
+ 駅緯度：<: $station.lat :><br/>
+ 駅経度：<: $station.lon :><br/>
+:}

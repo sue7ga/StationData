@@ -15,7 +15,7 @@ sub dispatch {
 __PACKAGE__->load_plugins(
     'Web::FillInFormLite',
     'Web::JSON',
-    '+StationData::Web::Plugin::Session',
+ '+StationData::Web::Plugin::Session',
 );
 
 # setup view

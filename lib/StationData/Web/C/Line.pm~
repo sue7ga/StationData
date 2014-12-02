@@ -1,0 +1,38 @@
+package StationData::Web::C::Line;
+
+use Data::Dumper;
+
+use StationData::Model::Pref;
+
+my $station = new StationData::Model::Pref;
+
+sub line{
+ my($class,$c) = @_;
+ my $linecode = $c->session->get('linecode');
+ my $station = $station->get_line($linecode);
+ return $c->render('line.tx',{station_l => $station->{station_l},line_name => $station->{line_name},line_cd => $station->{line_cd}});
+}
+
+sub postline{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ $c->db->$param->{linecode});
+ return $c->redirect('/line');
+}
+
+sub poststation{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ print Dumper $param;
+ return $c->redirect('/station');
+}
+
+sub station{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ my $station_data = $station->get_station($param->{stationcode});
+ print Dumper $station_data;
+ return $c->render('station.tx');
+}
+
+1;
